@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Latar belakang gelap dengan bias merah tua agar warna kuning/emas menyala */
+    background: radial-gradient(circle at top right, #e90202, #ca6464, #1c99bf);
+    min-height: 100vh;
+    color: #fff1f2;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(28, 5, 5, 0.8) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(251, 191, 36, 0.2); /* Border kuning tipis */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 24px;
+    /* Warna Kuning Emas */
+    color: #fbbf24 !important;
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+}
+
+.nav-link {
+    color: #fecaca !important; /* Merah sangat muda */
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #fbbf24 !important;
+}
+
+/* Container */
+.container {
+    margin-top: 30px;
+}
+
+/* Cards */
+.card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(251, 191, 36, 0.1);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Header - Gradasi Merah Berani ke Merah Gelap */
+.card-header {
+    background: linear-gradient(90deg, #dc2626, #7f1d1d);
+    border: none;
+    padding: 20px;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-weight: 600;
+    color: #fef3c7; /* Kuning pucat untuk teks agar terbaca */
+    letter-spacing: 0.5px;
+}
+
+/* Inputs */
+.form-control {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    color: white;
+    border-radius: 14px;
+    padding: 12px 16px;
+    transition: 0.3s all ease;
+}
+
+.form-control:focus {
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border-color: #fbbf24; /* Fokus ke warna Kuning */
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+}
+
+.form-control::placeholder {
+    color: #991b1b; /* Merah gelap untuk placeholder */
+}
+
+/* Buttons */
+.btn-success {
+    /* Tombol utama menggunakan Kuning/Amber agar kontras dengan merah */
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+    border: none;
+    border-radius: 14px;
+    padding: 12px 24px;
+    font-weight: 700;
+    color: #451a03; /* Teks cokelat gelap agar elegan di atas kuning */
+    transition: 0.4s;
+}
+
+.btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+    filter: brightness(1.1);
+    color: #000;
+}
+
+.btn-outline-secondary {
+    border-radius: 14px;
+    border: 1px solid #fbbf24;
+    background: transparent;
+    color: #fbbf24;
+    transition: 0.3s;
+}
+
+.btn-outline-secondary:hover {
+    background: #fbbf24;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    border: none;
+    border-radius: 12px;
+    /* Merah menyala ke Merah darah */
+    background: linear-gradient(90deg, #ef4444, #991b1b);
+    transition: 0.3s;
+}
+
+.btn-danger:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Timeline Items */
+.list-group-item {
+    background: transparent;
+    color: #fee2e2;
+    border-bottom: 1px solid rgba(251, 191, 36, 0.05);
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.list-group-item:hover {
+    background: rgba(220, 38, 38, 0.05);
+    border-left: 4px solid #fbbf24; /* Aksen garis kuning saat hover */
+}
+
+/* Badge */
+.badge {
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #fbbf24 !important; /* Solid Gold */
+    color: #000;
+    font-weight: 800;
+}
+
+/* Search Title */
+h5 {
+    color: #fca5a5;
+    font-weight: 500;
+}
+
+/* Horizontal Line */
+hr {
+    border-color: rgba(251, 191, 36, 0.1);
+}
+
+/* Scrollbar Modern Red-Yellow */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#dc2626, #fbbf24);
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-success {
+        width: 100%;
+    }
+}

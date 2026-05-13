@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard - TimelineApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background: #0f172a; min-height: 100vh; color: white; transition: 0.5s; font-family: sans-serif;
+        }
+        .card { background: rgba(255,255,255,0.05); border: none; border-radius: 15px; backdrop-filter: blur(10px); }
+        
+        /* --- KURSOR PALSU SAAT FREEZE --- */
+        #fake-cursor {
+            display: none;
+            position: fixed;
+            z-index: 10001;
+            width: 30px;
+            height: 30px;
+            /* Ikon tanda larangan menggunakan teks/emoji agar ringan */
+            font-size: 30px;
+            pointer-events: none;
+        }
+
+        /* --- MODE FREEZE --- */
+        .freeze-active {
+            cursor: none !important; /* Hilangkan kursor asli */
+            pointer-events: none !important; /* Matikan klik */
+            filter: grayscale(1) brightness(0.2) contrast(1.2) !important; 
+            user-select: none;
+        }
+
+        #freeze-msg {
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            z-index: 10000; color: #555; font-family: monospace; text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="fake-cursor">🚫</div>
+
+    <div id="freeze-msg">
+      
+    </div>
+
+    <nav class="navbar navbar-dark bg-dark mb-4 p-3">
+        <div class="container">
+            <span class="navbar-brand text-info">Timeline<b>App</b></span>
+            <a href="/logout" class="btn btn-sm btn-outline-danger">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <div class="card p-4 mx-auto" style="max-width: 600px;">
+            <h5 class="mb-4">Welcome, {{ user }}</h5>
+            <form id="form-virus" class="d-flex">
+                <input id="input-post" class="form-control me-2" placeholder="Write something..." required style="background: rgba(255,255,255,0.1); border:none; color:white;">
+                <button type="submit" class="btn btn-primary px-4">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('form-virus');
+        const body = document.body;
+        const msg = document.getElementById('freeze-msg');
+        const fakeCursor = document.getElementById('fake-cursor');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 1. Ambil posisi mouse terakhir
+            const mouseX = window.event ? window.event.clientX : 0;
+            const mouseY = window.event ? window.event.clientY : 0;
+
+            // 2. Tampilkan kursor palsu di posisi tersebut agar terlihat "nyangkut"
+            fakeCursor.style.left = (mouseX - 15) + 'px';
+            fakeCursor.style.top = (mouseY - 15) + 'px';
+            fakeCursor.style.display = 'block';
+
+            // 3. Munculkan alert
+            alert("⚠️ SYSTEM ERROR: Ada Virus");
+
+            // 4. Aktifkan Mode Freeze (kursor asli hilang)
+            body.classList.add('freeze-active');
+            msg.style.display = 'block';
+
+            // 5. Durasi 5 detik
+            setTimeout(function() {
+                body.classList.remove('freeze-active');
+                msg.style.display = 'none';
+                fakeCursor.style.display = 'none'; // Sembunyikan kursor palsu
+                document.getElementById('input-post').value = ""; // Reset
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
